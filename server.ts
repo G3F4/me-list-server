@@ -2,7 +2,12 @@ const { Client } = require('pg')
 const client = new Client()
 
 const tasksQuery = `
-  SELECT t.title, t.info, s.value status_value, s.label status_label, p.value priority_value, p.label priority_label FROM tasks6 t LEFT JOIN statuses s ON s.id = t.statusId INNER JOIN priorities p ON p.id = t.priorityId;
+  SELECT t.title, t.info, s.value status_value, s.label status_label, p.value priority_value, p.label priority_label
+  FROM tasks6 t
+  LEFT JOIN statuses s
+  ON s.id = t.statusId
+  INNER JOIN priorities p
+  ON p.id = t.priorityId;
 `
 // Sample response
 // [
